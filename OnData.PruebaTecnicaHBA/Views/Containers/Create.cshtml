@@ -1,0 +1,156 @@
+﻿@model OnData.PruebaTecnicaHBA.Models.container
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Containers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+        <h1 class="text-center">Control Panel</h1>
+        
+            <div class="container">
+                <div class="row">
+                    <div class="board">
+                        
+                        <div class="board-inner">
+                            <ul class="nav nav-tabs" id="myTab">
+                                
+                                <li class="active">
+                                    <a href="#home" data-toggle="tab" title="welcome">
+                                        <span class="round-tabs one">
+                                            <i class="glyphicon glyphicon-comment"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                              
+
+                                <li>
+                                    <a href="#settings" data-toggle="tab" title="blah blah">
+                                        <span class="round-tabs four">
+                                            <i class="glyphicon glyphicon-camera"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                
+
+                            </ul>
+                        </div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="home">
+
+                                
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <h4>Container</h4>
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.type_containers_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+
+                                            @Html.ValidationMessageFor(model => model.type_containers_id, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.content, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input class="btn btn-success btn-outline-rounded green" type="submit" value="Create"  />
+                                            <input class="btn btn-danger btn-outline-rounded " type="submit" value="Regresar" />
+                                            @Html.ActionLink("Back to List", "Index")
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            
+                            </div>
+                            <div class="tab-pane fade" id="settings">
+                               
+                              
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.type_containers_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+
+                                        @Html.ValidationMessageFor(model => model.type_containers_id, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.content, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <span class="btn btn-default btn-file">
+                                            @Html.TextBoxFor(modelo => modelo.content, new { type = "file" })
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input class="btn btn-success btn-outline-rounded green" type="submit" value="Create" />
+                                        <input class="btn btn-danger btn-outline-rounded " type="submit" value="Regresar" />
+                                        @Html.ActionLink("Back to List", "Index")
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+  
+}
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
